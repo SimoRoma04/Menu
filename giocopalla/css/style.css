@@ -16,8 +16,8 @@ body {
 }
 
 .container_class {
-  width: 1200px;
-  height: 100vh;
+  width: 100%;
+  height: 100%;
   margin: auto;
 }
 
@@ -28,9 +28,9 @@ body {
 
 #title {
   font: bold;
-  width: 600px;
-  margin: 20px 0;
-  font-size: 60px;
+  width: 10%;
+  margin: 1% ;
+  font-size: 6%;
   text-align: center;
   color: #ff0059;
 }
@@ -42,14 +42,14 @@ body {
 }
 
 #level_title {
-  padding: 20px 0;
+  padding: 2% 0;
 }
 
 #level {
-  font-size: 15px;
-  margin-bottom: 10px;
+  font-size: 1,5%;
+  margin-bottom: 1%;
   color: #ff0059;
-  border: 1px solid #ff0059;
+  border: 1% solid #ff0059;
 }
 #level:focus {
   outline: none;
@@ -62,10 +62,10 @@ body {
 .start_game {
   text-decoration: none;
   color: #ff0059;
-  font-size: 20px;
-  padding: 0 30px;
-  border-radius: 5px;
-  border: 1px solid #ff0059;
+  font-size: 2%;
+  padding: 0 3%;
+  border-radius: 5%;
+  border: 1% solid #ff0059;
   outline: none;
   cursor: pointer;   
 }
@@ -74,41 +74,41 @@ body {
 #grid_container {
   display: flex;
   justify-content: center;
-  padding-top: 50px;
+  padding-top: 5%;
 }
 
 .game_grid {
   display: flex;
   flex-wrap: wrap;
-  width: 602px;
-  border: 1px solid #ff0059;
+  width: 62%;
+  border: 1% solid #ff0059;
   margin: auto;
   background-color: #ff0059;
 }
 .game_grid_500 {
-  height: 602px;
+  height: 625;
 }
 .game_grid_400 {
-  height: 482px;
+  height: 42%;
 }
 .game_grid_250 {
-  height: 302px;
+  height: 32%;
 }
 .game_grid_100 {
-  height: 152px;
+  height: 17%x;
 }
 .game_grid_50 {
-  height: 102px;
+  height: 12%;
 }
 
 .square_style {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: calc(60px - 2px);
-  height: calc(60px - 2px);
-  margin: 1px;
-  font-size: 15px;
+  width: calc(6% - 2%);
+  height: calc(6% - 2%);
+  margin: 1%;
+  font-size: 1.5%;
   cursor: pointer;
   animation: fadeIn 600ms ease-in-out;
   transition: all linear 0.1s;
@@ -123,7 +123,7 @@ body {
 }
 
 .square_style.clicked {
-  font-size: 30px;
+  font-size: 3%;
 }
 
 .fade_out {
@@ -140,10 +140,10 @@ body {
 }
 
 .score_text {
-  font-size: 80px;
-  margin-top: 150px;
+  font-size: 8%;
+  margin-top: 15%;
 }
 
 .retry_game_button {
-  margin-top: 50px;
+  margin-top: 5%;
 }
