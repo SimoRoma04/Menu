@@ -1,0 +1,65 @@
+<html>
+<style>
+body {
+background-color: white;
+}h2 {
+border:1px solid orange;
+border-bottom-style: none;
+border-top-style: none;
+border-left-width: 5px;
+background-color: orange;
+}p {
+color:white;
+padding-left: 5px;
+}
+</style>
+<body><h2>Tabelline da 1 a 1000</h2><p id="demo"></p>
+<script>
+
+
+
+document.write('<table border=1 cellpadding = 10>');
+f=0;
+s=1;
+document.write('<tr>')
+ document.write('<td>');
+
+document.write('</td>');
+document.write('</tr>')
+
+          for (let i=1; i<=1000; i++) {
+            document.write('<tr>');
+            
+               n=i;
+               if(n %2 == 0){
+                  document.write("<td style='background-color:rgb(255,0,0);color:rgb(0,0,0);'>");document.write(n);
+              document.write('</td>');
+               }
+              else {document.write("<td style='background-color:rgb(0,0,255);color:rgb(0,0,0);'>");document.write(n);
+              document.write('</td>');}
+            document.write('</tr>')
+f++;
+
+if (f==1000){
+s++;
+
+document.write('<tr>');
+ document.write('<td>');
+
+document.write('</td>');
+document.write('</tr>');
+f=0;
+}}
+          
+          document.write('</table>');
+
+
+
+
+
+
+
+
+document.getElementById("demo").innerHTML = text;
+</script></body>
+</html>

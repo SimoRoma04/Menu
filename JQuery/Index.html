@@ -1,0 +1,193 @@
+
+<HTML>
+
+<HEAD>
+   <TITLE>Esercizio 4</TITLE>
+   
+
+   <SCRIPT src="jquery-1.7.2.min.js" ></SCRIPT>
+   <SCRIPT src="jquery-ui-1.8.21.custom.min.js" ></SCRIPT>
+   
+
+<STYLE>
+body { 
+   background-color:rgb(255,255,150); 
+   color:rgb(0,0,150); 
+}
+.scelta{
+	background-color:rgb(255,255,255); 
+   color:rgb(0,0,0); 
+   
+   width:100px;
+   height:100px;
+   position: leftContext;
+   border: 5px solid #000000;
+  padding:12px;
+  float : right;
+}
+.giallo{
+	 border: 2px solid #000000;
+	background-color:rgb(255,255,0); 
+   color:rgb(255,255,255); 
+   
+   width:75px;
+   height:75px;
+   
+   
+   float : left;
+}
+.blu{
+	background-color:rgb(0,0,255); 
+   color:rgb(255,255,255); 
+   border: 2px solid #000000;
+   width:75px;
+   height:75px;
+  
+   float : left;
+  
+}
+.verde{
+	background-color:rgb(0,255,0); 
+   color:rgb(255,255,255); 
+   border: 2px solid #000000;
+   width:75px;
+   height:75px;
+   float : left;
+   
+  
+}
+.rosso{
+	background-color:rgb(250,0,0); 
+   color:rgb(255,255,255); 
+   border: 2px solid #000000;
+   width:75px;
+   height:75px;
+   position:left;
+   float : left;
+  
+}
+.miediv { 
+   background-color:rgb(0,0,0); 
+   color:rgb(255,255,255); 
+   
+   width:15px;
+   height:15px;
+   position:absolute;
+    
+   vertical-align:middle;
+}
+
+</STYLE>
+
+</HEAD>
+
+<BODY>
+
+
+
+<SCRIPT>
+$(document).ready( function() {
+
+   r=10;  //righe
+   c=20;   //colonne
+    
+rosso= document.createElement('div'); // creo div rosso
+  rosso.setAttribute('valore', 1);		// a
+  rosso.setAttribute('class', 'rosso'); // aggiungo classe rosso
+  rosso.setAttribute('id', 'r');		// do id r
+blu= document.createElement('div');
+  blu.setAttribute('valore', 2);
+  blu.setAttribute('class', 'blu');
+   blu.setAttribute('id', 'b');
+verde= document.createElement('div');
+  verde.setAttribute('valore', 3);
+   verde.setAttribute('id', 'v');
+  verde.setAttribute('class', 'verde');
+giallo= document.createElement('div');  
+giallo.setAttribute('valore', 4);
+giallo.setAttribute('class', 'giallo');
+ giallo.setAttribute('id', 'g');
+scelta= document.createElement('div');
+scelta.setAttribute('class', 'scelta');
+ scelta.setAttribute('valore', 0);
+ scelta.setAttribute('id', 's');
+ $("body").append(scelta);
+ $("body").append(rosso);
+ $("body").append(giallo);
+ $("body").append(blu);
+ $("body").append(verde);
+ 
+   for(i=0;i<r;i++)
+   {
+      for(j=0;j<c;j++)
+      {
+		  
+         nuovo = document.createElement('div');
+         nuovo.setAttribute('id', 'd'+i+j);
+         nuovo.setAttribute('class', 'miediv');
+		  nuovo.setAttribute('i', i);
+         nuovo.setAttribute('j', j);
+		 nuovo.setAttribute('valore', 0);
+         $("body").append(nuovo);
+
+         t=(i*17)+205; // distanziare i div
+         l=(j*17)+205; // distanziare i div
+         $("#d"+i+j).css({ 'top':t, 'left':l });
+        
+           
+		  $('#d'+i+j).dblclick( function(){
+			  $(this).css({ 'background-color':'rgb(0,0,0)' });
+		 });
+		
+ $('#d'+i+j).click( function(){
+	  ph=$("#s").attr('valore');
+	 if ( 1 == ph)
+	 {
+		 $(this).css({ 'background-color':'rgb(255,0,0)' });
+		
+	 }
+	  if ( 2 == ph)
+	 {
+		 $(this).css({ 'background-color':'rgb(0,0,255)' });
+	 }
+	  if ( 3 == ph)
+	 {
+		 $(this).css({ 'background-color':'rgb(0,255,0)' });
+	 }
+	  if ( 4 == ph)
+	 {
+		 $(this).css({ 'background-color':'rgb(255,255,0)' });
+	 }
+	 
+		 });			
+			$("#b").click( function() {
+	 $("#s").css({ 'background-color':'rgb(0,0,255)' });
+	 $("#s").attr('valore',2);
+	  $("#d"+i+j).html('#s');
+ });
+ $("#v").click( function() {
+	 $("#s").css({ 'background-color':'rgb(0,255,0)' });
+	 $("#s").attr('valore',3);
+	  $("#d"+i+j).html('#s');
+ });
+ $("#g").click( function() {
+	 $("#s").css({ 'background-color':'rgb(255,255,0)' });
+	 $("#s").attr('valore',4);
+	  $("#d"+i+j).html('#s');
+ });
+			
+ $("#r").click( function() {
+	 $("#s").css({ 'background-color':'rgb(255,0,0)' });
+	 $("#s").attr('valore',1);
+	  $("#d"+i+j).html('#s');
+ });
+
+ 
+   }}
+
+});
+</SCRIPT>
+
+</BODY>
+
+</HTML>
