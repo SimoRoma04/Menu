@@ -1,0 +1,224 @@
+<html>
+
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1">
+<meta name="Author" content="Gianfranco Bo">
+<meta name="GENERATOR" content="Microsoft FrontPage 4.0">
+<meta name="ProgId" content="FrontPage.Editor.Document">
+<title>Numeri primi e fattorizzazione</title>
+<link rel="stylesheet" type="text/css" href="../stileb5.css">
+</head>
+
+<body>
+
+
+<h1 style="text-align: center">Numeri primi e fattorizzazione</h1>
+
+<script language="JavaScript">
+function init()
+{
+document.Numpri.Resp.value="Inizio"
+}
+
+function init1()
+{
+document.Fattori.Fattprimi.value="Inizio"
+}
+
+function Fatt(ini,fin)
+{
+
+if (fin == "") {
+fin = ini
+}
+
+var a1 = parseFloat(ini)
+var a2 = parseFloat(fin)
+
+if (a1 < 2) {
+a1 = 2
+}
+
+if (a2 < 2) {
+a2 = 2
+}
+
+if (a1 > a2) {
+var t = a1
+a1 = a2
+a2 = t
+}
+
+if (a2 - a1 > 1000) {
+a2 = a1 + 1000
+}
+
+
+var Resf="Elenco tutti i fattori dei numeri da "+a1+" a "+a2+"\nInizio...\n"
+
+for (i = a1; i<=a2; i++)
+{
+  Resf+=i+": 1-"
+  var n = i/2
+  for (j = 2; j <= n; j++)
+    if (i % j == 0) {
+     Resf+=j+"-"
+
+}
+Resf+=i+"\n------------\n"
+}
+
+Resf+="\nFine.\n"
+document.Fattori.Fattprimi.value=Resf
+}
+
+
+function Fattp(ini,fin)
+{
+
+if (fin == "") {
+fin = ini
+}
+
+var a1 = parseFloat(ini)
+var a2 = parseFloat(fin)
+
+if (a1 < 2) {
+a1 = 2
+}
+
+if (a2 < 2) {
+a2 = 2
+}
+
+if (a1 > a2) {
+var t = a1
+a1 = a2
+a2 = t
+}
+
+if (a2 - a1 > 1000) {
+a2 = a1 + 1000
+}
+
+var ancora = 0
+var Resfp="Elenco tutti i fattori primi dei numeri da "+a1+" a "+a2+"\nInizio...\n"
+
+for (i = a1; i<=a2; i++)
+{
+  Resfp+=i+": "
+  var primo = 1
+  var nf= i
+  var n = i/2
+  for (j = 2; j <= n; j++)
+    do {
+     ancora = 0
+     if (nf % j == 0) {
+      primo = 0
+      ancora = 1
+      Resfp+=j+"-"
+      nf = nf/j
+}
+
+}
+while (ancora == 1)
+if (primo == 1) {
+      Resfp+="primo"
+}
+
+Resfp+="\n------------\n"
+}
+
+Resfp+="\nFine.\n"
+document.Fattori.Fattprimi.value=Resfp
+}
+
+
+
+function Elpri(ini,fin)
+{
+
+var a1 = parseFloat(ini)
+var a2 = parseFloat(fin)
+
+if (a1 < 2) {
+a1 = 2;
+}
+
+if (a2 < 2) {
+a2 = 2
+}
+
+if (a1 > a2) {
+var t = a1
+a1 = a2
+a2 = t
+}
+
+var Resp="Ricerco tutti i numeri primi da "+a1+" a "+a2+"\nInizio...\n"
+
+var quanti = 0
+
+if (a1==2) {
+Resp+="2-"
+quanti = quanti + 1
+}
+
+if (a1%2==0) a1=a1+1
+
+for (i = a1; i<=a2; i=i+2)
+{
+  var primo=1
+  var n = Math.sqrt(i)
+  for (j = 3; j <= n; j=j+2)
+  {
+    if (i % j == 0) {
+    primo=0
+    break
+    }
+  }  
+  if (primo==1){
+  Resp+=i+"-"
+  quanti = quanti+1
+}
+}
+
+Resp+="\nHo trovato "+quanti+" numeri primi.\nFine.\n"
+document.Numpri.Resp.value=Resp;
+}
+
+
+// --></script>
+<form name="Fattori">
+ 
+  <div align="center">
+    <center>
+    <table border="1" cellpadding="1" cellspacing="0" width="90%">
+      <tr>
+        <td align="center" width="20%" bgcolor="#F9EB86"><font size="2"><b>Numeri
+          da fattorizzare<br>
+          </b></font><font size="1">(max 100 alla volta)</font></td>
+        <td align="center" width="20%" bgcolor="#F9EB86"><font size="2"><b>da: <input type="text" size="8" name="a"><br>
+          </b></font><font size="1">inserire il primo numero dell'intervallo</font></td>
+        <td align="center" width="20%" bgcolor="#F9EB86"><font size="2"><b>a: <input type="text" size="8" name="b"><br>
+          </b></font><font size="1">inserire l'ultimo dell'intervallo oppure
+          lasciare vuoto</font></td>
+        <td align="center" width="20%" bgcolor="#F9EB86"><font size="2"><b><input type="button" value="Mostra tutti i fattori" onclick="Fatt(document.Fattori.a.value,document.Fattori.b.value);"></b></font>
+          <p><input type="button" value="Mostra fattori primi" onclick="Fattp(document.Fattori.a.value,document.Fattori.b.value);"></p>
+        </td>
+        <td align="center" width="20%" bgcolor="#F9EB86"><font color="#FFFF80" size="2"><b><input type="reset" value="Cancella" onclick="init1()"></b></font></td>
+      </tr>
+      <tr>
+        <td colspan="5">
+          <p align="center"><textarea name="Fattprimi" rows="16" cols="50"></textarea></p>
+        </td>
+      </tr>
+    </table>
+    </center>
+  </div>
+  <p>&nbsp;</p>
+</form>
+
+</body>
+
+</html>
